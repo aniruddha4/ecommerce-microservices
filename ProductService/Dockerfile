@@ -1,8 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 COPY . .
-RUN dotnet restore ProductService/ProductService.csproj
-RUN dotnet publish ProductService/ProductService.csproj -c Release -o /app
+RUN dotnet restore ProductService.csproj
+RUN dotnet publish ProductService.csproj -c Release -o /app
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0
 WORKDIR /app
