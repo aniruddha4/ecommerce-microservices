@@ -1,9 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
-COPY Shared.Contracts/Shared.Contracts.csproj Shared.Contracts/
-COPY ProductService/ProductService.csproj ProductService/
-RUN dotnet restore ProductService/ProductService.csproj
 COPY . .
+RUN dotnet restore ProductService/ProductService.csproj
 RUN dotnet publish ProductService/ProductService.csproj -c Release -o /app
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0
